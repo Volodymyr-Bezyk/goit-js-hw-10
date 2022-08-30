@@ -3,6 +3,7 @@ import debounce from 'lodash.debounce';
 import Notiflix from 'notiflix';
 import refs from './refs';
 import SearchCountry from './fetchCountries';
+import refs from './refs';
 
 const DEBOUNCE_DELAY = 300;
 
