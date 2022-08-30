@@ -1,3 +1,5 @@
+/* @import '~bootstrap/scss/bootstrap'; */
+
 * {
   box-sizing: border-box;
 }
@@ -10,6 +12,8 @@ body {
   background-color: #fafafa;
   color: #212121;
   line-height: 1.5;
+
+  padding-top: 30px;
 }
 
 #search-box {
@@ -17,4 +21,78 @@ body {
   padding: 8px;
   max-width: 320px;
   margin-bottom: 16px;
+  margin-left: 30px;
+
+  background-color: rgb(141, 236, 138);
+  width: 400px;
+  outline: none;
+  border-radius: 5px;
+}
+
+#search-box:focus {
+  border-color: tomato;
+}
+
+.country-info {
+  max-width: 50%;
+  min-width: 400px;
+  margin-left: 30px;
+}
+.country-header {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+  margin-bottom: 20px;
+  padding: 20px;
+
+  background-color: #e2dddd;
+}
+.country-body {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+
+  height: 200px;
+  width: auto;
+
+  font-size: 20px;
+}
+.country-body > li {
+  display: block;
+
+  font-style: oblique;
+  font-weight: 700;
+  width: 100%;
+}
+.country-body > li:not(:last-child) {
+  margin-bottom: 15px;
+}
+.country-body span {
+  display: inline-block;
+  margin-left: 20px;
+
+  font-weight: 400;
+}
+
+img {
+  display: inline-block;
+  margin-right: 35px;
+}
+h1 {
+  font-size: 30px;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.country-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  text-align: center;
+
+  width: 400px;
 }
