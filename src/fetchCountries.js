@@ -1,5 +1,7 @@
 import Notiflix from 'notiflix';
 
+const BASE_URL = 'https://restcountries.com/v3.1';
+
 export default class SearchCountry {
   constructor() {
     this.name = '';
@@ -14,7 +16,7 @@ export default class SearchCountry {
   }
 
   fetchCountries() {
-    const url = `https://restcountries.com/v3.1/name/${this.name}?fields=${this.filter}`;
+    const url = `${BASE_URL}/name/${this.name}?fields=${this.filter}`;
 
     return fetch(url).then(this.checkResponse).catch(this.catchError);
   }
