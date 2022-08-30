@@ -47,7 +47,8 @@ export function renderCountryList(markup) {
   refs.countryList.innerHTML = markup;
 }
 
-export function clearHTML() {
+export function clearHTML(data) {
   refs.countryInfo.innerHTML = '';
   refs.countryList.innerHTML = '';
+  return data;
 }

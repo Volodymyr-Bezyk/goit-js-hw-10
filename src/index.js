@@ -27,22 +27,23 @@ function onSearchFieldChange(e) {
     return;
   }
   countryHandler.option = e.target.value.trim();
-  countryHandler.fetchCountries().then(renderData).catch(catchError);
+  countryHandler
+    .fetchCountries()
+    .then(clearHTML)
+    .then(renderData)
+    .catch(catchError);
 }
 
 function renderData(data) {
   if (data.length === 1) {
-    clearHTML();
     const markup = createCountryCard(data);
     return renderCountryInfo(markup);
   }
   if (data.length > 1 && data.length <= 10) {
-    clearHTML();
     const markup = createCountryListMarkup(data);
     return renderCountryList(markup);
   }
   if (data.length > 10) {
-    clearHTML();
     return Notiflix.Notify.info(
       'Too many matches found. Please enter a more specific name.'
     );
