@@ -1,11 +1,11 @@
 import Notiflix from 'notiflix';
 
-const BASE_URL = 'https://restcountries.com/v3.1';
+const BASE_URL = 'https://restcountries.com/v3.1/name/';
 
 export default class SearchCountry {
   constructor() {
     this.name = '';
-    this.filter = 'name,capital,population,flags,languages';
+    this.filter = '?fields=name,capital,population,flags,languages';
   }
   get option() {
     return this.name;
@@ -16,9 +16,9 @@ export default class SearchCountry {
   }
 
   fetchCountries() {
-    const url = `${BASE_URL}/name/${this.name}?fields=${this.filter}`;
+    const url = `${BASE_URL}${this.name}${this.filter}`;
 
-    return fetch(url).then(this.checkResponse).catch(this.catchError);
+    return fetch(url).then(this.checkResponse);
   }
 
   checkResponse(response) {
@@ -26,10 +26,5 @@ export default class SearchCountry {
       throw new Error();
     }
     return response.json();
-  }
-  catchError(error) {
-    console.log('ERROR: Bad request to backend');
-    console.log(error);
-    Notiflix.Notify.failure('Oops, there is no country with that name');
   }
 }
