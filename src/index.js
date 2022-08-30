@@ -53,5 +53,6 @@ function renderData(data) {
 function catchError(error) {
   console.log('ERROR: Bad request to backend');
   console.log(error);
+  clearHTML();
   Notiflix.Notify.failure('Oops, there is no country with that name');
 }
